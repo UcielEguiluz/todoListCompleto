@@ -45,4 +45,19 @@ export default class Model {
     Object.assign(this.todos[index], values);
     this.save();
   }
+
+  addTodo(title, description) {
+    const todo = {
+      id: this.currentId++,
+      title,
+      description,
+      completed: false,
+    }
+
+    this.todos.push(todo);
+    console.log(this.todos);
+    this.save();
+
+    return {...todo};
+  }
 }
